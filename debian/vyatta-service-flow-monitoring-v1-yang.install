@@ -1,0 +1,12 @@
+#!/usr/bin/dh-exec
+
+yang/vyatta-service-flow-monitoring-v1.yang usr/share/configd/yang
+yang/vyatta-op-show-flow-monitoring-v1.yang usr/share/configd/yang
+yang/vyatta-op-show-log-flow-monitoring-v1.yang usr/share/configd/yang
+yang/vyatta-op-clear-flow-monitoring-v1.yang usr/share/configd/yang
+scripts/vplane-netflow.pl opt/vyatta/sbin
+scripts/exportd-config.pl opt/vyatta/sbin
+scripts/vyatta-flow-monitoring-show.pl opt/vyatta/bin
+scripts/vyatta_flow_monitoring_show_dataplane.py opt/vyatta/bin
+scripts/vyatta-flow-monitoring-clear.pl opt/vyatta/bin
+scripts/flow-monitoring-tech-support => opt/vyatta/share/vyatta-op/functions/tech-support.d/3070-vyatta-service-flow-monitoring

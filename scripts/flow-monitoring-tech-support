@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+# Copyright (c) 2018-2019, AT&T Intellectual Property. All rights reserved.
+#
+# SPDX-License-Identifier: GPL-2.0-only
+
+source "$(cd "$(dirname "${0}")" && pwd -P)"/../tech-support.functions
+
+header FLOW-MONITORING
+time_out "run show flow-monitoring"
+
+if package_exists vermont; then
+	if [ -r /var/run/vermont/sensor_output.xml ]; then
+		header VERMONT DAEMON SENSOR STATS
+		do_cmd cat /var/run/vermont/sensor_output.xml
+	fi
+fi

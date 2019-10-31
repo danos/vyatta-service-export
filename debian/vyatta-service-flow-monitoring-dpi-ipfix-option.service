@@ -1,0 +1,10 @@
+[Unit]
+Description=Export DPI IPFIX Option data
+
+[Service]
+User=_dpi_ipfix_option
+Restart=on-failure
+ExecStart=/opt/vyatta/sbin/dpi-ipfix-option
+
+[Install]
+WantedBy=multi-user.target

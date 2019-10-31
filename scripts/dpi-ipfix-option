@@ -1,0 +1,71 @@
+#!/usr/bin/python3
+
+import sys
+import csv
+import time
+import os
+import logging
+
+import ipfix
+
+import zmq
+
+# TODO: These should probably be script arguments or in a config file
+APPINFO_FILE = '/usr/share/dpi/appinfo.csv'
+INTERVAL = 300  # seconds
+ZMQ_ENDPOINT = "tcp://127.0.0.1:5951"
+
+# We assume that the apps came from the Qosmos DPI Engine
+# https://www.iana.org/assignments/ipfix/ipfix.xhtml#classification-engine-ids
+ENGINE_ID = bytes([21])
+
+APP_OPTION_SET_ID = 258
+fieldnames = ['applicationId', 'applicationName', 'applicationDescription']
+
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+log = logging.getLogger('ipfix_dpi')
+
+
+def export_app_option(socket):
+
+    ipfix.ie.use_iana_default()
+
+    # TODO: Calculate max applicationName string length from the CSV file
+    tmpl = ipfix.template.for_specs(APP_OPTION_SET_ID,
+                                    "applicationId[5]",
+                                    "applicationName[28]")
+    tmpl.scopecount = 1
+
+    msg = ipfix.message.MessageBuffer()
+    msg.begin_export()
+    msg.add_template(tmpl)
+    msg.export_new_set(APP_OPTION_SET_ID)
+
+    with open(APPINFO_FILE) as csvfile:
+        apps_csv = csv.DictReader(csvfile, delimiter=",",
+                                  fieldnames=fieldnames)
+        for idx, app in enumerate(apps_csv):
+            app['applicationId'] = int(app['applicationId'])
+            app['applicationId'] = ENGINE_ID+app['applicationId'].to_bytes(4, byteorder='big')
+            try:
+                msg.export_namedict(app)
+            except ipfix.message.EndOfMessage:
+                socket.send_multipart([b'dpi_option', msg.to_bytes()])
+                msg.begin_export()
+                msg.export_ensure_set(APP_OPTION_SET_ID)
+        socket.send_multipart([b'dpi_option', msg.to_bytes()])
+
+
+def main():
+
+    zmq_ctx = zmq.Context.instance()
+    zmq_socket = zmq_ctx.socket(zmq.PUB)
+    zmq_socket.bind(ZMQ_ENDPOINT)
+
+    while True:
+        export_app_option(zmq_socket)
+        time.sleep(INTERVAL)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

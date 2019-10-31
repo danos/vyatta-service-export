@@ -1,0 +1,77 @@
+Source: vyatta-service-export
+Section: contrib/net
+Priority: extra
+Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
+Build-Depends: debhelper (>= 9),
+	       python3,
+	       dh-exec,
+	       dh-python,
+	       dh-yang,
+	       dh-systemd
+Standards-Version: 3.9.6
+X-Python3-Version: >= 3.2
+
+Package: vyatta-service-flow-monitoring-dpi-ipfix-option
+Architecture: all
+Section: contrib/net
+Depends: ${misc:Depends},
+ adduser,
+ vyatta-dpi-cache,
+ python3,
+ python3-ipfix,
+ python3-zmq,
+Description: DPI IPFIX Options service
+ A systemd service that publishes DPI IPFIX Options over a ZMQ socket
+
+Package: vyatta-service-flow-monitoring-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends: vermont, ${misc:Depends},
+ ${yang:Depends},
+ ${perl:Depends},
+ perl (>= 5.8.8),
+ libmodule-load-conditional-perl,
+ libxml-libxml-perl,
+ python3,
+ python3-vplaned,
+ vyatta-cfg (>= 0.104),
+ vyatta-op,
+Conflicts: vyatta-service-flow-monitoring, vyatta-op (<< 1.0)
+Replaces: vyatta-service-flow-monitoring, vyatta-op (<< 1.0)
+Description: config/op yang, templates and scripts for vermont
+ The Vyatta configuration/operational YANG, templates and scripts for vermont
+
+Package: vyatta-service-flow-monitoring-bonding-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends: vyatta-service-flow-monitoring-v1-yang (>= ${source:Version}),
+ ${misc:Depends},
+ ${yang:Depends}
+Description: vyatta-service-flow-monitoring-bonding-v1 module
+ The YANG module for vyatta-service-flow-monitoring-bonding-v1
+
+Package: vyatta-service-flow-monitoring-vhost-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends:  ${misc:Depends},
+ ${yang:Depends}
+Description: vyatta-service-flow-monitoring-vhost-v1 module
+ The YANG module for vyatta-service-flow-monitoring-vhost-v1
+
+Package: vyatta-service-flow-monitoring-routing-instance-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends:  ${misc:Depends},
+ ${yang:Depends},
+ libvyatta-vrfmanager-perl,
+ vermont (>= 20151005-0vyatta7)
+Description: vyatta-service-flow-monitoring-routing-instance-v1 module
+ The YANG module for vyatta-service-flow-monitoring-routing-instance-v1
+
+Package: vyatta-service-flow-monitoring-dataplane-vif-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends:  ${misc:Depends},
+ ${yang:Depends}
+Description: vyatta-service-flow-monitoring-dataplane-vif-v1 module
+ The YANG module for vyatta-service-flow-monitoring-dataplane-vif-v1

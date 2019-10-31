@@ -1,0 +1,83 @@
+# Project Specific files to ignore
+
+Makefile
+.deps/
+.dirstamp
+/test-driver
+/config.log
+/config.status
+/coverage.info
+/coveragereport/
+/debian/files
+/debian/autoreconf.*
+/debian/tmp/
+/debian/*.substvars
+/debian/*.debhelper*
+/debian/vyatta-exportd/
+/debian/vyatta-service-flow-monitoring/
+/debian/vyatta-exportd-dbg/
+/src/vyatta-exportd
+/test/*.log
+/test/*.trs
+/test/dummy
+/test/helpers/pyflow-monitor/env/
+/test/*_tester
+
+# Created by https://www.gitignore.io
+
+### Autotools ###
+# http://www.gnu.org/software/automake
+
+Makefile.in
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+
+
+### Gcov ###
+# gcc coverage testing tool files
+
+*.gcno
+*.gcda
+*.gcov
+
+
+### C ###
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
