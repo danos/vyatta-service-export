@@ -1,3 +1,9 @@
+vyatta-service-export (4.14) unstable; urgency=medium
+
+  * Add support for configuring logging level (Fixes: VRVDR-43699)
+
+ -- Nicholas Brown <nick.brown@att.com>  Thu, 16 Jan 2020 11:43:07 +0000
+
 vyatta-service-export (4.13) unstable; urgency=medium
 
   * DANOS Import master
