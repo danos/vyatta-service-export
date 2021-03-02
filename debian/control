@@ -1,14 +1,13 @@
 Source: vyatta-service-export
 Section: contrib/net
-Priority: extra
+Priority: optional
 Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper-compat (= 10),
 	       python3,
 	       dh-exec,
 	       dh-python,
 	       dh-yang,
-	       dh-systemd
-Standards-Version: 3.9.6
+Standards-Version: 4.0.1
 X-Python3-Version: >= 3.2
 
 Package: vyatta-service-flow-monitoring-dpi-ipfix-option
