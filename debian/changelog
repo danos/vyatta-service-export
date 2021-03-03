@@ -1,3 +1,9 @@
+vyatta-service-export (4.15) unstable; urgency=medium
+
+  * More recent debian compat/debhelper
+
+ -- Nicholas Brown <nick.brown@att.com>  Wed, 03 Mar 2021 11:00:46 +0000
+
 vyatta-service-export (4.14) unstable; urgency=medium
 
   * Add support for configuring logging level (Fixes: VRVDR-43699)
