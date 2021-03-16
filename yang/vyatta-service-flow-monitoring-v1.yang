@@ -29,18 +29,17 @@ module vyatta-service-flow-monitoring-v1 {
 	contact
 	    "AT&T
 	     Postal: 208 S. Akard Street
-	             Dallas, TX 25202
+	             Dallas, TX 75202
 	     Web: www.att.com";
 	 
 	description
-	    "Copyright (c) 2019 AT&T Intellectual Property
+	    "Copyright (c) 2019, 2021 AT&T Intellectual Property
 	     All rights reserved.
 	 
 	     Copyright (c) 2015-2016 by Brocade Communications Systems, Inc.
 	     All rights reserved.
 	 
-	     The Vyatta configuration/operational YANG, templates and scripts
-	     for vermont.
+	     The Vyatta configuration YANG for vermont.
 	 
 	     Redistribution and use in source and binary forms, with or without
 	     modification, are permitted provided that the following conditions
@@ -70,6 +69,10 @@ module vyatta-service-flow-monitoring-v1 {
 	     POSSIBILITY OF SUCH DAMAGE.
 	 
 	     SPDX-License-Identifier: BSD-3-Clause";
+
+	revision 2021-03-16 {
+		description "Updated description.";
+	}
 
 	revision 2019-12-18 {
 		description "Add logging configuration.";
