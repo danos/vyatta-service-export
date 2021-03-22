@@ -140,6 +140,15 @@ sub generate {
 		}
 	}
 
+	if ($interfaces->{"interfaces"}->{"virtual-feature-point"}) {
+		my $intfs = $interfaces->{"interfaces"}->{"virtual-feature-point"};
+		foreach my $intf (keys %$intfs) {
+			if ($interfaces->{"interfaces"}->{"virtual-feature-point"}->{$intf}->{"flow-monitoring"}) {
+				$interfaces_list{$intf} = $interfaces->{"interfaces"}->{"virtual-feature-point"}->{$intf};
+			}
+		}
+	}
+
 	my $tt = new Template(PRE_CHOMP => 1, INCLUDE_PATH => '.');
 	if ( $vrf_available ) {
 		$tt->process(\*DATA, {
