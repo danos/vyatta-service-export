@@ -74,3 +74,11 @@ Depends:  ${misc:Depends},
  ${yang:Depends}
 Description: vyatta-service-flow-monitoring-dataplane-vif-v1 module
  The YANG module for vyatta-service-flow-monitoring-dataplane-vif-v1
+
+Package: vyatta-service-flow-monitoring-bonding-vif-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends:  ${misc:Depends},
+ ${yang:Depends}
+Description: vyatta-service-flow-monitoring-bonding-vif-v1 module
+ The YANG module for vyatta-service-flow-monitoring-bonding-vif-v1

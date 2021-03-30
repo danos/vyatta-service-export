@@ -120,6 +120,14 @@ sub generate {
 			if ($interfaces->{"interfaces"}->{"bonding"}->{$intf}->{"flow-monitoring"}) {
 				$interfaces_list{$intf} = $interfaces->{"interfaces"}->{"bonding"}->{$intf};
 			}
+			if ($interfaces->{"interfaces"}->{"bonding"}->{$intf}->{"vif"}) {
+				my $vifs = $interfaces->{"interfaces"}->{"bonding"}->{$intf}->{"vif"};
+				foreach my $vif (keys %$vifs) {
+					if ($interfaces->{"interfaces"}->{"bonding"}->{$intf}->{"vif"}->{$vif}->{"flow-monitoring"}) {
+						$interfaces_list{"$intf.$vif"} = $interfaces->{"interfaces"}->{"bonding"}->{$intf}->{"vif"}->{$vif};
+					}
+				}
+			}
 		}
 	}
 

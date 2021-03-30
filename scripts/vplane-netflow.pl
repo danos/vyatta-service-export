@@ -100,6 +100,12 @@ sub configureAll {
         my @interfaces = $vyattaConfig->listNodes("interfaces bonding");
         for my $intf (@interfaces) {
             configureDataplane($intf, "bonding", "");
+            if ($vyattaConfig->exists("interfaces bonding $intf vif")) {
+                my @vifs = $vyattaConfig->listNodes("interfaces bonding $intf vif");
+                for my $vif (@vifs) {
+                    configureDataplane($intf, "bonding", $vif);
+                }
+            }
         }
     }
 
