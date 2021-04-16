@@ -1,3 +1,10 @@
+vyatta-service-export (4.17) unstable; urgency=medium
+
+  * add flow monitoring on bonding vif support
+  * Update copyright date of modified files
+
+ -- Nicholas Brown <nick.brown@att.com>  Fri, 16 Apr 2021 13:18:37 +0100
+
 vyatta-service-export (4.16) unstable; urgency=medium
 
   [ Paul Aitken ]
