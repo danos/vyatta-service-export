@@ -109,6 +109,13 @@ sub configureAll {
         }
     }
 
+    if ($vyattaConfig->exists("interfaces tunnel")) {
+        my @interfaces = $vyattaConfig->listNodes("interfaces tunnel");
+        for my $intf (@interfaces) {
+            configureDataplane($intf, "tunnel", "");
+        }
+    }
+
     if ($vyattaConfig->exists("interfaces vhost")) {
         my @interfaces = $vyattaConfig->listNodes("interfaces vhost");
         for my $intf (@interfaces) {

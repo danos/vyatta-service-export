@@ -131,6 +131,15 @@ sub generate {
 		}
 	}
 
+	if ($interfaces->{"interfaces"}->{"tunnel"}) {
+		my $intfs = $interfaces->{"interfaces"}->{"tunnel"};
+		foreach my $intf (keys %$intfs) {
+			if ($interfaces->{"interfaces"}->{"tunnel"}->{$intf}->{"flow-monitoring"}) {
+				$interfaces_list{$intf} = $interfaces->{"interfaces"}->{"tunnel"}->{$intf};
+			}
+		}
+	}
+
 	if ($interfaces->{"interfaces"}->{"vhost"}) {
 		my $intfs = $interfaces->{"interfaces"}->{"vhost"};
 		foreach my $intf (keys %$intfs) {
