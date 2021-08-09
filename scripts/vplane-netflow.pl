@@ -129,6 +129,13 @@ sub configureAll {
             configureDataplane($intf, "virtual-feature-point", "");
         }
     }
+
+    if ($vyattaConfig->exists("interfaces vti")) {
+        my @interfaces = $vyattaConfig->listNodes("interfaces vti");
+        for my $intf (@interfaces) {
+            configureDataplane($intf, "vti", "");
+        }
+    }
 }
 
 if ($cmd eq "configure_all") {

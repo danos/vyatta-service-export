@@ -75,6 +75,14 @@ Depends:  ${misc:Depends},
 Description: vyatta-service-flow-monitoring-vhost-v1 module
  The YANG module for vyatta-service-flow-monitoring-vhost-v1
 
+Package: vyatta-service-flow-monitoring-vti-v1-yang
+Architecture: all
+Section: contrib/admin
+Depends:  ${misc:Depends},
+ ${yang:Depends}
+Description: vyatta-service-flow-monitoring-vti-v1 module
+ The YANG module for vyatta-service-flow-monitoring-vti-v1
+
 Package: vyatta-service-flow-monitoring-routing-instance-v1-yang
 Architecture: all
 Section: contrib/admin

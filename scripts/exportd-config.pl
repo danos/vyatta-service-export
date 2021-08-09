@@ -158,6 +158,14 @@ sub generate {
 		}
 	}
 
+	if ($interfaces->{"interfaces"}->{"vti"}) {
+		my $intfs = $interfaces->{"interfaces"}->{"vti"};
+		foreach my $intf (keys %$intfs) {
+			if ($interfaces->{"interfaces"}->{"vti"}->{$intf}->{"flow-monitoring"}) {
+				$interfaces_list{$intf} = $interfaces->{"interfaces"}->{"vti"}->{$intf};
+			}
+		}
+	}
 	my $tt = new Template(PRE_CHOMP => 1, INCLUDE_PATH => '.');
 	if ( $vrf_available ) {
 		$tt->process(\*DATA, {
