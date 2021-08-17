@@ -1,3 +1,10 @@
+vyatta-service-export (4.18) unstable; urgency=medium
+
+  [ Nicholas Brown ]
+  * Add support for flow monitoring on vfp interfaces
+
+ -- Gavin Shearer <gavin.shearer@att.com>  Tue, 17 Aug 2021 18:22:54 +0100
+
 vyatta-service-export (4.17) unstable; urgency=medium
 
   * add flow monitoring on bonding vif support
