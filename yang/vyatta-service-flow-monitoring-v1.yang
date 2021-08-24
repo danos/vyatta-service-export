@@ -70,6 +70,10 @@ module vyatta-service-flow-monitoring-v1 {
 
 	     SPDX-License-Identifier: BSD-3-Clause";
 
+	revision 2021-08-24 {
+		description "Added support for disabling application-id.";
+	}
+
 	revision 2021-03-16 {
 		description "Updated description.";
 	}
@@ -717,6 +721,21 @@ module vyatta-service-flow-monitoring-v1 {
 							range 10..10000;
 						}
 						default 1000;
+					}
+				}
+
+				container field {
+					configd:help "Field selection";
+					description "Field selection";
+
+					container application-id {
+						configd:help "application-id field";
+						description "application-id field";
+						leaf disable {
+							configd:help "disable application-id field";
+							description "disable application-id field";
+							type empty;
+						}
 					}
 				}
 			}
