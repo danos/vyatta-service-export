@@ -46,6 +46,8 @@ sub configureDataplane {
 
     my $direction = "ingress";
 
+    my $app_id = "app-id-enable";
+
     my $ctrl = new Vyatta::VPlaned;
 
     if ($vif ne "") {
@@ -70,9 +72,14 @@ sub configureDataplane {
                 "service flow-monitoring selector $name direction");
         }
 
+        if ($vyattaConfig->exists(
+                "service flow-monitoring selector $name field application-id disable")) {
+            $app_id = "app-id-disable";
+        }
+
         $ctrl->store(
             "interface $type netflow $intf$sub_int",
-            "netflow enable $intf$sub_int $sampleType $sampleRate $direction",
+            "netflow enable $intf$sub_int $sampleType $sampleRate $direction $app_id",
             "ALL", "SET"
         );
     } else {
