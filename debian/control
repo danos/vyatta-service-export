@@ -43,8 +43,7 @@ Description: config/op yang, templates and scripts for vermont
 Package: vyatta-service-flow-monitoring-bonding-v1-yang
 Architecture: all
 Section: contrib/admin
-Depends: vyatta-service-flow-monitoring-v1-yang (>= ${source:Version}),
- ${misc:Depends},
+Depends:  ${misc:Depends},
  ${yang:Depends}
 Description: vyatta-service-flow-monitoring-bonding-v1 module
  The YANG module for vyatta-service-flow-monitoring-bonding-v1
@@ -52,8 +51,7 @@ Description: vyatta-service-flow-monitoring-bonding-v1 module
 Package: vyatta-service-flow-monitoring-tunnel-v1-yang
 Architecture: all
 Section: contrib/admin
-Depends: vyatta-service-flow-monitoring-v1-yang (>= ${source:Version}),
- ${misc:Depends},
+Depends:  ${misc:Depends},
  ${yang:Depends}
 Description: vyatta-service-flow-monitoring-tunnel-v1 module
  The YANG module for vyatta-service-flow-monitoring-tunnel-v1
@@ -61,8 +59,7 @@ Description: vyatta-service-flow-monitoring-tunnel-v1 module
 Package: vyatta-service-flow-monitoring-vfp-v1-yang
 Architecture: all
 Section: contrib/admin
-Depends: vyatta-service-flow-monitoring-v1-yang (>= ${source:Version}),
- ${misc:Depends},
+Depends:  ${misc:Depends},
  ${yang:Depends}
 Description: vyatta-service-flow-monitoring-vfp-v1 module
  The YANG module for vyatta-service-flow-monitoring-vfp-v1
